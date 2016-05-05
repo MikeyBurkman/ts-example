@@ -6,8 +6,9 @@ var router = express.Router();
 
 router.get('/:id', function(req, res, next) {
   user.getUser(req.params['id'])
-    .then(user => res.render('user', {
-      user: user,
+    .then(user => res.json({
+      name: user.name,
+      id: user.id,
       time: (new Date()).toISOString()
     }))
     .catch(err => next(err));
