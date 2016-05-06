@@ -1,6 +1,10 @@
 {
   "name": "TypeScript-Backend-Example",
+  "description": "A small application written in TypeScript to serve as a basis for others",
   "version": "0.0.1",
+  "author": "MikeyBurkman",
+  "repository": "https://github.com/MikeyBurkman/ts-example.git",
+  "license": "MIT",
   "private": true,
   "main": "./dist/app.js",
   "scripts": {
