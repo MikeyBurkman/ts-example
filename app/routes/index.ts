@@ -1,10 +1,22 @@
 
 import express = require('express');
-var router = express.Router();
+const router = express.Router();
+
+const getFirstLetters = (x: string) => x.slice(0, 2);
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.json({ title: 'Mikey' });
+  let it = f();
+  let itAsArray = Array.from(it);
+  res.json({
+    values: itAsArray.map(getFirstLetters)
+  });
 });
+
+function *f() {
+  yield 'abc';
+  yield 'def';
+  yield * ['foo', 'bar', 'baz'];
+}
 
 export = router;

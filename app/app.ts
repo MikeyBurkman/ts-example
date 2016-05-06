@@ -26,18 +26,21 @@ app.use('/users', users);
 
 //catch 404 and forward to error handler
 app.use((req, res, next) => {
- var err = new Error('Not Found');
- err['status'] = 404;
- next(err);
+  class NotFoundError extends Error {
+    status: number
+  }
+  let err = new NotFoundError('Not Found');
+  err.status = 404;
+  next(err);
 });
 
 // error handler
 app.use((err: any, req, res, next) => {
- res.status(err.status || 500)
+  res.status(err.status || 500)
     .json({
-     message: err.message,
-     error: isDev() ? err : null
-   });
+      message: err.message,
+      error: isDev() ? err : null
+    });
 });
 
 app.listen(port, function() {
