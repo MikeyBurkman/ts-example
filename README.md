@@ -5,7 +5,7 @@ Example backend application in TypeScript
 1. `npm install`
 2. `npm start`
 
-This will start the server on port 3000. Go to `localhost:3000` to verify it's working
+This will start the server on port 3000. Go to `localhost:3000` to verify it's working. The server will automatically restart on any file changes.
 
 ### Re-building
 - If you're using Atom (or another editor) with the correct TypeScript plugin, new JS files should be compiled and added to the `dist` folder automatically.
