@@ -1,8 +1,11 @@
 
-import Promise = require('bluebird');
+import Bluebird = require('bluebird');
 
-export function getUser(id: string): Promise<User> {
-  return Promise.delay(1500)
+export async function getUser(id: string): Promise<User> {
+  if (id === 'null') {
+    throw new Error('Something went wrong!');
+  }
+  return Bluebird.delay(500)
     .then(() => ({
       id: id,
       name: 'Mikey'

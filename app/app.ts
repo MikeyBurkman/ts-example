@@ -33,11 +33,11 @@ app.use((req, res, next) => {
 
 // error handler
 app.use((err: any, req, res, next) => {
- var status = err.status || 500;
- res.json(status, {
-   message: err.message,
-   error: isDev() ? err : null
- });
+ res.status(err.status || 500)
+    .json({
+     message: err.message,
+     error: isDev() ? err : null
+   });
 });
 
 app.listen(port, function() {
