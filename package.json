@@ -2,9 +2,10 @@
   "name": "TypeScript-Backend-Example",
   "version": "0.0.1",
   "private": true,
+  "main": "./dist/app.js",
   "scripts": {
     "postinstall": "typings install && tsc",
-    "start": "nodemon --watch ./dist ./dist/app.js"
+    "start": "nodemon --watch ./dist"
   },
   "dependencies": {
     "bluebird": "^3.3.5",
