@@ -14,7 +14,9 @@ This will start the server on port 3000. Go to `localhost:3000` to verify it's w
 ### Sample URLs
 `http://localhost:3000`
 - Will show the default page, mostly used for smoke testing
+
 `http://localhost:3000/users/1`
 - Search for the user with ID 1. Other IDs can be substituted
+
 `http://localhost:3000/error`
 - Sample error page. Note that the generated source maps are used so the stack trace is correct
