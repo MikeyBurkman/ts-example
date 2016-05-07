@@ -8,8 +8,10 @@
   "private": true,
   "main": "./dist/app.js",
   "scripts": {
-    "postinstall": "typings install && tsc",
-    "start": "nodemon --watch ./dist"
+    "postinstall": "typings install && tsc --pretty",
+    "start": "nodemon --watch ./dist",
+    "clean": "del typings && del dist",
+    "typings": "typings"
   },
   "dependencies": {
     "bluebird": "^3.3.5",
@@ -17,9 +19,11 @@
     "cookie-parser": "~1.3.3",
     "express": "~4.11.1",
     "morgan": "~1.5.1",
+    "ramda": "0.18.0",
     "source-map-support": "^0.4.0"
   },
   "devDependencies": {
+    "del-cli": "^0.2.0",
     "typescript": "^1.8.10",
     "typings": "^0.8.1",
     "nodemon": "^1.9.2",

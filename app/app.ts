@@ -7,12 +7,13 @@ import logger = require('morgan');
 import cookieParser = require('cookie-parser');
 import bodyParser = require('body-parser');
  
-import routes = require('./routes/index');
-import users = require('./routes/users');
+import baseRoutes = require('./routes/index');
+import usersRoutes = require('./routes/users');
+import errorRoutes = require('./routes/error');
 
-var port = 3000;
+const port = 3000;
 
-var app = express();
+const app = express();
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(__dirname + '/public/favicon.ico'));
@@ -21,17 +22,13 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-app.use('/', routes);
-app.use('/users', users);
+app.use('/', baseRoutes);
+app.use('/users', usersRoutes);
+app.use('/error', errorRoutes);
 
 //catch 404 and forward to error handler
 app.use((req, res, next) => {
-  class NotFoundError extends Error {
-    status: number
-  }
-  let err = new NotFoundError('Not Found');
-  err.status = 404;
-  next(err);
+  next(new NotFoundError());
 });
 
 // error handler
@@ -39,7 +36,7 @@ app.use((err: any, req, res, next) => {
   res.status(err.status || 500)
     .json({
       message: err.message,
-      error: isDev() ? err : null
+      error: isProd() ? null : err.stack
     });
 });
 
@@ -47,6 +44,13 @@ app.listen(port, function() {
   console.log('Listening on port: ', port);
 });
 
-function isDev() {
-  return (app.get('env') === 'development');
+function isProd() {
+  return (app.get('env') === 'production');
+}
+
+class NotFoundError extends Error {
+  constructor() {
+    super('Not Found');
+  }
+  status: number = 404;
 }
