@@ -20,9 +20,8 @@ router.get('/:id', async function(req, res, next) {
         time: (new Date()).toISOString()
       });
     }
-    
   } catch (err) {
-    next(err);
+    return next(err);
   }
 });
 
