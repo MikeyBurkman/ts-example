@@ -1,5 +1,5 @@
 # ts-example
-Example backend application in TypeScript
+Example backend application in TypeScript. Currently requires Node >= 4. (Its compile target is ES6, to allow for async/generators.)
 
 ### Setup
 1. `npm install`
