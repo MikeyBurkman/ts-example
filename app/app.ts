@@ -6,7 +6,9 @@ import path = require('path');
 import logger = require('morgan');
 import cookieParser = require('cookie-parser');
 import bodyParser = require('body-parser');
- 
+
+import errors = require('./errors');
+
 import baseRoutes = require('./routes/index');
 import usersRoutes = require('./routes/users');
 import errorRoutes = require('./routes/error');
@@ -28,7 +30,7 @@ app.use('/error', errorRoutes);
 
 //catch 404 and forward to error handler
 app.use((req, res, next) => {
-  next(new NotFoundError());
+  next(new errors.NotFoundError());
 });
 
 // error handler
@@ -46,11 +48,4 @@ app.listen(port, function() {
 
 function isProd() {
   return (app.get('env') === 'production');
-}
-
-class NotFoundError extends Error {
-  constructor() {
-    super('Not Found');
-  }
-  status: number = 404;
 }

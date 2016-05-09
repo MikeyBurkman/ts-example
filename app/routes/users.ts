@@ -1,6 +1,8 @@
 
 import express = require('express');
+
 import userModel = require('../model/userModel');
+import errors = require('../errors');
 
 const router = express.Router();
 
@@ -11,7 +13,7 @@ router.get('/:id', async function(req, res, next) {
     let user = await userModel.getUser(id);
 
     if (!user) {
-      return res.status(404).json(null);
+      throw new errors.NotFoundError();
 
     } else {
       return res.json({
