@@ -23,6 +23,6 @@ export function getUser(id: string): Promise<User> {
 }
 
 export interface User {
-  id: string,
-  name: string
+  readonly id: string,
+  readonly name: string
 }
