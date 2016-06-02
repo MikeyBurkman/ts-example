@@ -10,7 +10,7 @@ router.get('/:id', async function(req, res, next) {
   const id = req.params['id'];
 
   try {
-    const user = await userModel.getUser(id);
+    let user = await userModel.getUser(id);
 
     if (!user) {
       throw new errors.NotFoundError();
