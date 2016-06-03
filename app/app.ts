@@ -17,6 +17,9 @@ const port = 3000;
 
 const app = express();
 
+import injectTest = require('./injectTest');
+injectTest.init();
+
 // uncomment after placing your favicon in /public
 //app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use(logger('dev'));
@@ -43,7 +46,7 @@ app.use((err: any, req, res, next) => {
 });
 
 app.listen(port, function() {
-  console.log('Listening on port: ', port);
+  console.log('\nListening on port: ', port);
 });
 
 function isProd() {
