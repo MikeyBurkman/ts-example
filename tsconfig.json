@@ -15,6 +15,7 @@
     "suppressImplicitAnyIndexErrors": false,
     "sourceMap": true,
     "noImplicitReturns": true,
+    "strictNullChecks": true,
     "outDir": "dist"
   },
   "exclude": [

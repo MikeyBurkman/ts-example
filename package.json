@@ -7,6 +7,9 @@
   "license": "MIT",
   "private": true,
   "main": "./dist/app.js",
+  "engines" : {
+    "node" : ">=4" 
+  },
   "scripts": {
     "postinstall": "typings install && tsc --pretty",
     "start": "nodemon --watch ./dist",
@@ -25,7 +28,7 @@
   },
   "devDependencies": {
     "del-cli": "^0.2.0",
-    "typescript": "^1.8.10",
+    "typescript": "^v2.0.0-beta",
     "typings": "^0.8.1",
     "nodemon": "^1.9.2",
     "proxyquire": "^1.7.4"

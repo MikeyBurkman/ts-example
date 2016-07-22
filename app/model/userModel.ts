@@ -16,13 +16,23 @@ const userStore = [{
   name: 'Leonardo'
 }];
 
-export function getUser(id: string): Promise<User> {
-  const userMatches: (user: User) => boolean = R.propEq('id', id);
+export function getUser(id: string): Promise<User|undefined> {
   return Promise.delay(500)
-    .then(() => R.find(userMatches, userStore));
+    .then(() => find(id));
+}
+
+function find(id: string): Promise<User|undefined> {
+  // Just add in a delay because we want to simulate async stuff
+  return Promise.delay(500)
+    .then(() => findImmediate(id));
+}
+
+function findImmediate(id: string): User|undefined {
+  const userMatches: (user: User|undefined) => boolean = R.propEq('id', id);
+  return R.find(userMatches, userStore);
 }
 
 export interface User {
-  id: string,
-  name: string
+  readonly id: string,
+  readonly name: string
 }
