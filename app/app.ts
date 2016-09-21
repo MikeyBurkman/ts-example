@@ -4,7 +4,6 @@ require('source-map-support').install();
 import express = require('express');
 import path = require('path');
 import logger = require('morgan');
-import cookieParser = require('cookie-parser');
 import bodyParser = require('body-parser');
 
 import errors = require('./errors');
@@ -25,7 +24,6 @@ injectTest.init();
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser());
 
 app.use('/', baseRoutes);
 app.use('/users', usersRoutes);
@@ -33,7 +31,7 @@ app.use('/error', errorRoutes);
 
 //catch 404 and forward to error handler
 app.use((req, res, next) => {
-  next(new errors.NotFoundError());
+  next!(new errors.NotFoundError());
 });
 
 // error handler

@@ -18,10 +18,9 @@
     "strictNullChecks": true,
     "outDir": "dist"
   },
-  "exclude": [
-    "typings/browser.d.ts",
-    "typings/browser",
-    "node_modules"
+  "include": [
+    "./app/**/*.ts",
+    "./typings/main.d.ts"
   ],
   "compileOnSave": true,
   "buildOnSave": false,
