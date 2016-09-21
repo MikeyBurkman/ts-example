@@ -1,10 +1,10 @@
 
-import express = require('express');
+import {Router} from 'express';
 
-import userModel = require('../model/userModel');
-import errors = require('../errors');
+import * as userModel from '../model/userModel';
+import {NotFoundError} from '../errors';
 
-const router = express.Router();
+const router = Router();
 
 // Use of async functions -- call promises and then await their results.
 // This stuff requires compilation to >= es6
@@ -14,7 +14,7 @@ router.get('/:id', async function(req, res, next) {
   try {
     const user = await userModel.getUser(id);
     if (!user) {
-      throw new errors.NotFoundError();
+      throw new NotFoundError();
 
     } else {
       return res.json({

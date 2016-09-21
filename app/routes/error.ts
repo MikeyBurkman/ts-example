@@ -1,7 +1,7 @@
 
-import express = require('express');
+import {Router} from 'express';
 
-const router = express.Router();
+const router = Router();
 
 router.get('/', function(req, res, next) {
   throw new Error('Error! In something!');

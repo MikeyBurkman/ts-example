@@ -1,16 +1,16 @@
 
 require('source-map-support').install();
 
-import express = require('express');
-import path = require('path');
-import logger = require('morgan');
-import bodyParser = require('body-parser');
+import * as express from 'express';
+import * as path from 'path';
+import * as logger from 'morgan';
+import * as bodyParser from 'body-parser';
 
-import errors = require('./errors');
+import * as errors from './errors';
 
-import baseRoutes = require('./routes/index');
-import usersRoutes = require('./routes/users');
-import errorRoutes = require('./routes/error');
+import * as baseRoutes from './routes/index';
+import * as usersRoutes from './routes/users';
+import * as errorRoutes from './routes/error';
 
 const port = 3000;
 

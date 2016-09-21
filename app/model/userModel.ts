@@ -1,6 +1,6 @@
 
-import R = require('ramda');
-import Promise = require('bluebird');
+import * as R from 'ramda';
+import * as Promise from 'bluebird';
 
 const userStore = [{
   id: '1',

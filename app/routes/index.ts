@@ -1,6 +1,6 @@
 
-import express = require('express');
-const router = express.Router();
+import {Router} from 'express';
+const router = Router();
 
 // Currying! Kind of!
 const getFirstLetters = (n: number) => (x: string) => x.slice(0, n);
