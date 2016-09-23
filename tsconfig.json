@@ -19,12 +19,8 @@
     "outDir": "dist"
   },
   "include": [
-    "./app/**/*.ts",
-    "./typings/main.d.ts"
+    "./app/**/*.ts"
   ],
   "compileOnSave": true,
-  "buildOnSave": false,
-  "atom": {
-    "rewriteTsconfig": true
-  }
+  "buildOnSave": false
 }
