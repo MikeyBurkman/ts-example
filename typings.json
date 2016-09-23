@@ -1,7 +1,0 @@
-{
-  "name": "ts-example",
-  "version": false,
-  "ambientDependencies": {
-    "ramda": "github:donnut/typescript-ramda/ramda.d.ts#399509e49e42a21bdd06d31abdd7c8b91ef58acc"
-  }
-}
